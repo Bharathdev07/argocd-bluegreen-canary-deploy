@@ -9,7 +9,7 @@ spec:
     blueGreen:
       activeService: active-app
       previewService: preview-app
-      autoPromotionEnabled: false  # Manual switch to new version
+      autoPromotionEnabled: true  # Manual switch to new version
   selector:
     matchLabels:
       app: blue-green-app
