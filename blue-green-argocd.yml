@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: app
-        image: bharath415/nginx:1.0  # Change version in Git for deployments
+        image: bharath415/nginx:2.0  # Change version in Git for deployments
         ports:
         - containerPort: 80
