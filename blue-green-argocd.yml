@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: blue-green-app
+  namespace: default
+spec:
+  replicas: 3
+  strategy:
+    blueGreen:
+      activeService: active-app
+      previewService: preview-app
+      autoPromotionEnabled: false  # Manual switch to new version
+  selector:
+    matchLabels:
+      app: blue-green-app
+  template:
+    metadata:
+      labels:
+        app: blue-green-app
+    spec:
+      containers:
+      - name: app
+        image: bharath415/nginx:1.0  # Change version in Git for deployments
+        ports:
+        - containerPort: 80
